@@ -1,0 +1,35 @@
+body {
+    color: #fff !important;
+}
+
+a {
+    color: #fff !important;
+}
+
+a:hover {
+    color: #0d6efd !important;
+}
+
+.header-div {
+    background: #1b2c37;
+    padding: 20px;
+    text-align: center;
+}
+
+.content-div {
+    background: #101f26;
+    padding: 20px;
+}
+
+.status-card {
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.live {
+    background: green;
+}
+
+.down {
+    background: red;
+}
