@@ -15,14 +15,26 @@
 
   <div class="container-fluid header-div">
     <h1>Uptime System</h1>
+    <div class="menu-nav">
+      <ul>
+        <li><a href="/">Uptime Check</a></li>
+        <li><a href="/page-indexing/index.php">Page Indexing Check</a></li>
+      </ul>
+    </div>
   </div>
+  
   <div class="container-fluid content-div">
     <div class="col-sm-12">
       <?php 
       for ($i = 0; $i < count($site_array); $i++) {
-        echo '<a href="'.$site_array[$i].'" target="_blank">'.$site_array[$i].'</a>: 
-        <button class="status-card live" onclick="checkWebsiteLive(\''.$site_array[$i].'\')">CHECK</button><br>
-        ';
+        echo '<span>'.$site_array[$i].'</span>: ';
+        if($socket =@ fsockopen($site_array[$i], 80, $errno, $errstr, 30)) {
+        echo '<span class="status-card live">LIVE</span>';
+        fclose($socket);
+        } else {
+        echo '<span class="status-card down">DOWN</span>';
+        }
+        echo '<br>';
       }
       ?>
     </div>
